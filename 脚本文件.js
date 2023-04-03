@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name              爱达杂货铺
-// @namespace         https://github.com/syhyz1990/baiduyun
+// @namespace         https://github.com/RUInalan/AidaGroceryStore
 // @version           6.0.3
 // @author            YouXiaoHou
 // @description       1
