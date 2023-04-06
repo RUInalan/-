@@ -9,17 +9,29 @@
 // ==/UserScript==
 
 (function () {
-    // 获取页面上所有的 <a> 标签
-    const links = document.getElementsByTagName('a');
 
-    // 遍历每个链接，匹配与正则表达式相符的链接
-    for (let i = 0; i < links.length; i++) {
-        const link = links[i];
-        const pattern = /<a href="([^"]+)"\s+target="_blank"\s+data-id="(\d+)"\s+data-url="([^"]+)"\s+class="card mb-3 site-(\d+)"\s+title="([^"]+)">/;
-        if (pattern.test(link.outerHTML)) {
-            //开始修改
-            link.href = link.dataset.url;
+    function StraightChainP(){
+        // 获取页面上所有的 <a> 标签
+        const links = document.getElementsByTagName('a');
+
+        // 遍历每个链接，匹配与正则表达式相符的链接
+        for (let i = 0; i < links.length; i++) {
+            const link = links[i];
+            const pattern = /<a href="([^"]+)"\s+target="_blank"\s+data-id="(\d+)"\s+data-url="([^"]+)"\s+class="card mb-3 site-(\d+)"\s+title="([^"]+)">/;
+            if (pattern.test(link.outerHTML)) {
+                //开始修改
+                link.href = link.dataset.url;
+            }
         }
     }
+
+
+    StraightChainP();
+
+   const pagenumber = document.getElementsByClassName("pagenumber nav-item");
+   for (let i = 0; i < pagenumber.length; i++) {
+        console.log(pagenumber[i]);
+        pagenumber[i].onclick = StraightChainP;
+   }
 
 })();
